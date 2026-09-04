@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import {cart, removeFromCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 // step 1 creating variable to display cart data on checkout page
@@ -36,10 +36,12 @@ cart.forEach((cartItem)=>{
                   <span>
                     Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                   </span>
-                  <span class="update-quantity-link link-primary">
+                  <span class="update-quantity-link link-primary
+                  js-update-link">
                     Update
                   </span>
-                  <span class="delete-quantity-link link-primary">
+                  <span class="delete-quantity-link link-primary 
+                  js-delete-link" data-product-id = "${matchingProduct.id}">
                     Delete
                   </span>
                 </div>
@@ -95,5 +97,13 @@ cart.forEach((cartItem)=>{
 })
 // step 3 finally add in html all data
 document.querySelector('.js-order-summary').innerHTML = cartSummartHTML;
-
-console.log(cartSummartHTML);
+//console.log(cartSummartHTML);
+document.querySelectorAll('.js-delete-link')
+.forEach((link) =>{
+        link.addEventListener('click',()=>{
+          // that show the delete button working||console.log('delete link');
+          const productId = link.dataset.productId;
+            removeFromCart(productId);
+            console.log(cart);
+        })
+    });
