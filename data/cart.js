@@ -19,29 +19,16 @@ export function addToCart(productId)
                 });
                 //
                 if(matchingItem){
-                    matchingItem.Quantity += 1;
+                    matchingItem.quantity += 1;
                 }else
                     {
                         cart.push({
                             productId: productId,
-                            Quantity: 1
+                            quantity: 1
                         });
                     }
         }
 
-// cart quantity update
-
-export function updateCartQuantity()
-        {
-            let cartQuantity = 0;
-                cart.forEach((CartItem) => {
-                    cartQuantity += CartItem.Quantity;
-                });
-                document.querySelector('.js-cart-quantity')
-                .innerHTML = cartQuantity;
-                //console.log(cartQuantity);
-                //console.log(cart);
-        }
 //[ removing || using delete button for crat summary ] 
 export function removeFromCart(productId){
     const newCart = [];

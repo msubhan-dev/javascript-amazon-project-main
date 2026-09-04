@@ -1,7 +1,7 @@
 /* import {cart as myCart} from '../data/cart.js';
 const cart = [];
  */
-import {cart,addToCart,updateCartQuantity} from '../data/cart.js';
+import {cart,addToCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js'
 
@@ -66,16 +66,26 @@ products.forEach((product) => {
 //console.log(productsHTML);
 // that line used to show products on screen in innerHYML
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
+// //function of update cart Quantity
+function updateCartQuantity(){
+            let cartQuantity = 0;
+
+                cart.forEach((cartItem) => {
+                    cartQuantity += Number(cartItem.quantity);
+                });
+                document.querySelector('.js-cart-quantity')
+                .innerHTML = cartQuantity;
+                console.log(cartQuantity);
+                console.log(cart); 
+        }
 // That handel the carts function 
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button)=>{
         button.addEventListener('click', () => {
             //(that show the working )console.log('added ptoducts to cart');
             const productId = button.dataset.productId;
-
             //working of cart button call back function
             addToCart(productId);
-            
             //function of update cart Quantity
             updateCartQuantity();
             
