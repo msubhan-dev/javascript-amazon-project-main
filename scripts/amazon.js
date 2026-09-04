@@ -63,9 +63,9 @@ products.forEach((product) => {
     `;
 });
 //console.log(productsHTML);
-
+// that line used to show products on screen in innerHYML
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
-
+// That handel the carts function 
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button)=>{
         button.addEventListener('click', () => {
