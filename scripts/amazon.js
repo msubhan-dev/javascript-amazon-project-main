@@ -1,3 +1,8 @@
+/* import {cart as myCart} from '../data/cart.js';
+const cart = [];
+ */
+import {cart} from '../data/cart.js';
+
 console.log("Amazon script loaded");
 
 let productsHTML = '';
