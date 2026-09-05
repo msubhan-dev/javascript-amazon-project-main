@@ -8,9 +8,9 @@ cart.forEach((cartItem)=>{
     const productId = cartItem.productId;
 
     let matchingProduct;
-    products.forEach((product) =>{
+    products.forEach((product) => {
         if (product.id === productId){
-            matchingProduct =product;
+            matchingProduct = product;
         }
     });
     //console.log(matchingProduct);
@@ -95,13 +95,16 @@ cart.forEach((cartItem)=>{
             </div>
           </div>
     `;
-})
+});
+
 // step 3 finally add in html all data
 document.querySelector('.js-order-summary').innerHTML = cartSummartHTML;
 //console.log(cartSummartHTML);
+
+// delet button working and remove the cart
 document.querySelectorAll('.js-delete-link')
 .forEach((link) =>{
-        link.addEventListener('click',()=>{
+        link.addEventListener('click', () => {
           // that show the delete button working||console.log('delete link');
           const productId = link.dataset.productId;
             removeFromCart(productId);
