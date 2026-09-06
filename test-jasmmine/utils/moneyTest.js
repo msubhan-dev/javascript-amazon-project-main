@@ -1,4 +1,4 @@
-import { formatCurrency } from '../scripts/utils/money.js';
+import { formatCurrency } from '../../scripts/utils/money.js';
 
 describe('test suite: fromatCurrency', () => {
     // case1 :if(formatCurrency(2095)==='20.95'){console.log("Passed");}else{console.log("Failed");}
